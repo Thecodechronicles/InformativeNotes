@@ -1,9 +1,3 @@
-89035847
-Anekt@1530
-@nektA1530
-3592
-
-PPKNo. UA84259580
 
 NetBanking: SBI
 Magnificentankit5
@@ -19,8 +13,9 @@ login and profile password changed again in july 2023
 
 Note:Changing passwords made mandatory in SBI online banking at regular Intervals. Intervals exact period not known.. Presumably, its three years
 
-Card Details:
-4592-0002-2455-2907
+SBI card Details:
+4591-5604-2795-1967 (new)
+4592-0002-2455-2907 (old)
 3592
 
 PayPal: 
