@@ -1,0 +1,41 @@
+MEAN stack
+Java
+Javascript, Ajax, Jquery
+
+JAVA:
+Core
+Database Sql
+Advance:
+	Servlets
+	Jsp
+	RMI
+	Web Services
+Struts
+Frameworks:
+	Hibernate
+	Spring
+
+JAVASCRIPT, AJAX, JQUERY:
+All Frontend
+
+MEAN Stack:
+Mongo		what is mongoose and using mongoode driver
+Express:	what is middleware, exports and module.exports, routing
+Angular
+Nodejs:		will clarify fundamentals of javascript also
+	Promises
+	Higher order functions
+	callbacks and closures
+	error first callback
+	IFEE
+	Prototypes
+	Iterators(Filter, map, foreach)
+	Scope chain
+	Rest APIs
+	
+
+Notes:
+Learn Java and Nodejs(Javascript fundamentals) side by side
+client side to server side interactions/flow
+DOM manipulations, Javascript controllers
+

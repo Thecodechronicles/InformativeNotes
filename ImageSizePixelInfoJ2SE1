@@ -1,0 +1,29 @@
+1096*1760 1.9mb image-0003.pnm
+1685*2340 3.9mb image-0231.pnm
+
+Image_Resize/Crop_Dimensions:
+
+x-length*Y-length
+(990*1590)                
+                        y , x           y , x
+                       Top,Left        Top,right
+right-orientation  left(0,margin)  right(0,0)
+left-orientation   left(0,0)       right(0,margin)
+
+commandExample = mogrify -crop 990x1590+0+0 -path ../J2SE1CroppedImages *.pnm
+
+where; 990x1590+0+0 is (x)*(y)+(left:x)+(left:y)
+
+J2SE1PageReScan:
+0013, 0026, 0030, 0066, 0067, 0072, 0076, 0087, 0091, 0097, 0114, 0124, 0128, 0130, 0136
+
+xsane Scanner settings:
+flatbed gray full_color_range 200(scanResolution) gamma(0.99) brightness(-62.0) contrast(62.0) [R button]
+
+1095 Total Width
+
+To convert the pnm(scanned) files into a pdf file:
+sudo convert *.pnm J2SE1.pdf
+
+
+=> Some contents may not be understandable without disabling TextWrapping on this Window 

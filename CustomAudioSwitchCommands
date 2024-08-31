@@ -1,0 +1,11 @@
+pacmd set-default-sink 0 & pacmd move-sink-input 1108 0
+pacmd set-default-sink 1 & pacmd move-sink-input 1108 1
+
+alsa_output.pci-0000_00_14.2.analog-stereo
+alsa_output.pci-0000_00_01.1.hdmi-stereo
+
+pacmd set-default-sink "alsa_output.pci-0000_00_14.2.analog-stereo" & pacmd move-sink-input "alsa_output.pci-0000_00_01.1.hdmi-stereo" "alsa_output.pci-0000_00_14.2.analog-stereo"
+pacmd set-default-sink "alsa_output.pci-0000_00_01.1.hdmi-stereo" & pacmd move-sink-input "alsa_output.pci-0000_00_14.2.analog-stereo" "alsa_output.pci-0000_00_01.1.hdmi-stereo"
+
+pacmd set-default-sink "alsa_output.pci-0000_00_14.2.analog-stereo" & pacmd move-sink-input 1108 "alsa_output.pci-0000_00_14.2.analog-stereo"
+pacmd set-default-sink "alsa_output.pci-0000_00_01.1.hdmi-stereo" & pacmd move-sink-input 1108 "alsa_output.pci-0000_00_01.1.hdmi-stereo"

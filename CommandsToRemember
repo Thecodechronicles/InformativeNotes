@@ -1,0 +1,441 @@
+Commands to remember:
+
+PROMPT_DIRTRIM=1 (shorten the path displayed in terminal)
+
+sudo systemctl mask/unmask sleep.target suspend.target hibernate.target hybrid-sleep.target (overrides suspend system/computer settings)
+
+sudo mokutil --disable-validation (disable secure boot)
+sudo mokutil --enable-validation
+
+Brightness settings of multiple monitors via ddcutil:
+ddcutil getvcp 10(detects displays)
+ddcutil setvcp 10 100(set brightness levels of external monitor)
+ddcutil getvcp 12(get current contrast values)
+ddcutil setvcp 12 100(set contrast values to 100)
+(Reference: https://www.ddcutil.com/)
+
+wmctrl -lG (shows current id, position, size of the current windows)
+wmctrl -l (shows the current window ids)
+wmctrl -r RoadMapToAchieve -e 0,5442,1006,591,606
+where 'RoadMapToAchieve' is the Title of the window 
+and -e parameters '0,5442,1006,591,606' are gravity,Xoffset,Yoffset,width,height repectively
+NOTE: Above commands used in MyWorkInProgress.sh file placed on the desktop in Ubuntu 20.04
+wmctrl -r SMPlayer -b toggle,maximized_vert,maximized_horz
+wmctrl -r SMPlayer -b remove,maximized_vert,maximized_horz
+NOTE: Above commands used in 'SMPlayer_VSCode_Reposition.sh' and 'SMPlayer_Display_Monitor.sh' files placed in the home folder in Linux Mint 20.02
+
+
+VSCode:
+gedit  $HOME/.config/Code/User/settings.json (json file for user settings in vscode)
+"customWindowZoom.zoomLevelChangeValue": 0.2 (craigb85.custom-window-zoom extension setting in vscode; append this in above json file; shortcut key: Ctrl+8/9)	
+
+To check existence of installed plugin/package in ubuntu:
+dpkg -l | grep nautilus-image-converter
+where 'nautilus-image-converter' is the name of plugin/package 
+
+To convert Images into a pdf file:
+convert \*.jpg my_pdf.pdf (Package installed for this command to work: imagemagick )
+where '\*.jpg' means all the jpg files in the current directory
+
+Image manipulation plugin/packages in ubuntu installed by Ankit:
+imagemagick
+nautilus-image-converter
+
+*****************************************************
+
+To start usb phone camera as web camera in Ubuntu:
+on phone:
+1. enable Developer options and enable usb debugging (Go to About phone--> tap 'buid' 7 times to enter developer mode; Back to settings page--> Additional settings--> Developer options)
+2.Allow access on a prompt message
+3.open IP Webcam pro and start server
+
+on ubuntu:
+1. 'sudo mokutil --disable-validation' and create password
+2. reboot, enter 'Enroll MOK'(BIOS environment) and enter password ('Enter 2nd character of the password string' an so on.., thereafter it will boot in insecure mode)
+2. 'sudo modprobe v4l2loopback' (doesn't run in secure boot mode which is the default/normal mode for ubuntu)
+3. connect phone with ubuntu system with a usb cable and mount the phone camera as prefered
+4. './prepare-videochat.sh' (Inside ~/Downloads/IPWebcamProScript/ipwebcam-gst)
+
+Note: All Strings enclosed in inverted commas ('') are terminal commands
+Note: 1st and 2nd steps under 'on ubuntu' are no longer required (was required in ubuntu 18.04)
+Note: change port number in IPWebcam app and './prepare-videochat.sh' script file when existing port is in use (configure same port number at both places)
+
+on chat app:
+choose dummy camera (something like that)
+
+*****************************************************
+
+To create a new domain in weblogic server 11g version 10.3.6:
+
+1. go to root/Oracle/Middleware/wlserver_10.3/common/bin
+2. type sh config.sh
+3. configuration wizard will open in console mode
+4. follow the instructions (customise domain in case you want to use a different database other than the default database in the domain, customize the JDBC settings to point to the appropriate database)
+
+New domain will be created in root/Oracle/Middleware/user_projects/domains
+
+Domain Home: /root/Oracle/Middleware/user_projects/domains/base_domain
+where 'base_domain' could be any domain name choosen by the user 
+
+Weblogic Home: /root/Oracle/Middleware/wlserver_10.3 
+
+Reference: https://docs.oracle.com/cd/E23943_01/web.1111/e14140/newdom.htm#WLDCW109 (Bookmarked in Firefox)
+
+*****************************************************
+
+JSNotes:
+lib.dom.d.ts is Microsoft's VSCode development library(only VSCode uses that library)
+
+'onclick' is an event handler and an html property which can be accessed via javascript 
+
+*****************************************************
+
+sudo apt-get remove 'application name'
+sudo apt-get purge 'application name'
+
+sudo apt-get autoremove:
+libsystemd0:i386
+
+Removing python3-click (7.0-3) ...
+Removing python3-colorama (0.4.3-1build1) 
+
+*****************************************************
+
+A note about Hp lazer printes
+
+hp lazer printers have unprintable area on all four edges of the paper to prevent contamination/damage, from toner powder to the printer. Inkjet printers use liquid ink droplets and some of these models do allow edge-to-edge (borderless) printing
+
+*****************************************************
+
+sudo do-release-upgrade -d -f
+
+*****************************************************
+
+ps aux | grep vlc
+sudo kill -9 PID
+
+*****************************************************
+Tools in ubuntu :
+
+
+Apart from 'Gnome Tweaks' 'Extensions' shall also be used to enable and disable extentions of gnome shell and such; 
+
+like 'ubuntu appindicator' in 'Extesions' 
+
+switching on 'Application Menu' sometimes help as apps and tools are appropriately categorized (shown in gnome shell top bar when enabled in 'Extensions')
+
+'Startup Applications' is a tool to enable/disable default startup behaviour of apps at ubuntu startup
+
+******************************************************
+
+sudo apt-get install android-tools-adb
+
+(It installs Android debug bridge in ubuntu to communicate with an android device)
+(Android-Studio required for android app development) 
+
+******************************************************
+
+Apple Music Downloaded Widewine also to play DRM protected media
+
+******************************************************
+
+GNOME Installed User Extensions:
+
+Brightness control using ddcutil by themightydeity (Reference: https://lexruee.ch/setting-i2c-permissions-for-non-root-users.html)
+Display Button by fthx
+fix-multi-monitors by kirby_33
+OpenWeather by jens
+Sound Input & Output Device Chooser by kgshank
+User Themes by fmuellner
+
+******************************************************
+
+Hcitools for changing bluetooth dongle chipset properties:
+ 
+hciconfig hci0 version
+(hcitool commands for generic bluetooth chipset information)
+
+sudo bccmd -d hci0 psget bdaddr
+(To get the address of bluetooth dongle chipset
+Example Output: 
+1. Bluetooth address: 0xda00 0x1371 0x7d00 0x1a00 
+2. Bluetooth address: 0x0000 0x0c47 0x0700 0x0100
+Previous address '0xda00 0x1371 0x7d00 0x1a00 (00:1A:7D:DA:71:13)' became '0x0000 0x0c47 0x0700 0x0100 (da 00 12 71 7d 00 1a 00)' upon changing to new address)
+
+sudo bccmd -d hci0 psset -s 0 bdaddr da 00 12 71 7d 00 1a 00
+sudo bccmd -d hci0 psset -s 1 bdaddr da 00 12 71 7d 00 1a 00
+sudo bccmd -d hci0 psset -s 2 bdaddr da 00 12 71 7d 00 1a 00
+(All above commands need to be given for changing address of bluetooth dongle in RAM as well as ROM of bluetooth dongle chipset;  
+Parameters: 
+s 0 - for RAM, s 1 and so on - for ROM; 
+bdaddr - Blutooth Address; 
+hci0 - blutooth dongle chipset 1, hci1- bluetooth dongle chipset 2; 
+da 00 12 71 7d 00 1a 00 - new chipset hexadecimal address, Changed Hexadecimal Chipset Adress 'da 00 12 71 7d 00 1a 00' was displayed as '00:01:07:00:47:0C')
+
+bccmd -d hci0 warmreset
+(for making changes permanent in the bluetooth dongle otherwise changed address will be lost after reboot)
+
+Refrences:
+1. https://blog.tremend.com/change-your-bluetooth-address-of-your-linux-machine/
+2. http://forums.debian.net/viewtopic.php?f=7&t=126901
+3. https://codedump.net/blog/how-to-change-the-bluetooth-device-address
+(bdaddr comand didn't work out of the box. A workaround was found in above(1 & 2) refrences)
+
+
+******************************************************
+
+Home Network:
+
+Main Router:
+Router/Modem: Nokia
+Model: Nokia G-140W-C
+IP Address: 192.168.1.1
+Username: admin
+Password: admin
+changed 'channel' from 'Auto' to '149' under Network-->wireless(5G) through the web user interface of Router/Modem
+
+TpLink Extender:
+Extender: TP Link
+Model: TL-WA850RE
+IP Address: tplinkrepeater.net(local address domain name of TP Link Extender)
+Password: admin
+
+All Router/Modem/extender Password: AirNet9953518735
+
+
+*******************************************************
+
+Web Links:
+https://www.youtube.com/watch?v=onbBV0uFVpo&list=PLu0W_9lII9ahKZ42vg2w9ERPmShYbYAB7 (CodeWithHarry, Javascript tutorials)
+
+********************************************************
+
+A thing or two about AMD sensors:
+Driver `fam15h_power' (autoloaded):
+Chip `AMD Family 16h power sensors' (confidence: 9)
+
+Driver `k10temp' (autoloaded):
+Chip `AMD Family 16h thermal sensors' (confidence: 9)
+
+
+Relaxing an acpi kernel check to make fan detectors work in ubuntu(by running 'sensors' command):
+sudo gedit /etc/default/grub
+change 'GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"' to 'GRUB_CMDLINE_LINUX_DEFAULT="quiet splash acpi_enforce_resources=lax"'
+sudo update-grub
+reboot
+run sudo pwmconfig
+Note: solution didn't work so reverted to original
+
+**********************************************************
+To do list:
+
+22/12/2020
+Improve the script code of 'WorkIsLife.sh'.Try Using switch case in places of 'if' statements
+ 
+******************************************************
+
+Eclipse Current version in usage(24/02/2021): Eclipse 2019-06(4.12)
+
+To open .class file in eclipse for decompilation, open Navigator from Window --> Show View --> Navigator
+
+Decompiler plugin: Enhanced Class Decompiler
+
+Eclipse Current version in usage(12/04/2022): Eclipse 4.16 (2020-06)
+
+
+******************************************************
+EthernetLink: Ethernet connection between Ubuntu(Laptop) and Windows 10(PC)
+
+Windows 10 PC IPv4 Ethernet Address: 169.254.146.90
+Laptop Ubuntu IPv4 Ethernet Address: 169.254.160.54
+Subnet Mask: 255.255.0.0
+Windows 10 PC IPv4 wifi Address: 192.168.1.18 (subnet mask: 255.255.255.0)
+
+On Windows 10 PC:
+Settings-->Network & Internet-->Ethernet-->Network and Sharing Center
+
+Click 'Ethernet'-->Properties-->open 'Internet Protocol Version 4 (TCP/IPv4)' 
+
+Click 'Use the following IP address and fill out the fields as mentioned above (type ipconfig and look for 'Ethernet adapter Ethernet' --> Autoconfiguration IPv4 Address)
+
+Note:For PC 'Defaultt Gateway is the Laptop's Ethernet adapter address
+
+
+On Ubuntu 20.04 Laptop:
+Settings-->Network-->Wired
+
+Open wired settings-->IPv4
+
+Select 'Manual' and fillout the feilds as mentioned above. Leave the Gateway field empty(type ifconfig and look for 'eno1:' --> inet)
+
+
+Ubuntu File sharing and access:
+To share files via Ethernet Cable Change properties for each folder and select 'Share this folder' under 'Local Network Share' tab
+
+To access files from Windows 10 PC, go to 'Other Locations' in Nautilus --> Connect to server (Down below)
+
+Enter smb://169.254.146.90 (Windows 10 PC Ethernet adapter address) . Enter the username and password if prompted (UserName: AnkitPC Password: wingardium05). The bracketed credentials here are also the login credentials for the Windows 10 PC as Administrator
+
+Open the Shared Folder.If needed, bookmark the folder for future use
+
+
+Windows File sharing and access:
+To share folders follow same procedure. Go to folder properties and share the folder
+
+To access the files from ubuntu 20.04, go to 'Network' in Files Explorer. Type '\\iamankit' (Name of the Ubuntu computer/laptop) in address bar and enter. Enter the username and password fields if prompted (UserName: ankit Password: wingardium).
+The command 'sudo smbpasswd -a ankit' was invoked to set password for user 'ankit' to enable password protected sharing by Samba. Samba is the default file sharing client for Ubuntu.
+
+When sharing a folder do not check 'Guest share'. Doing so will grant access to the files without prompting for password
+
+Go inside 'IAMANKIT' (Ubuntu 20.04 Laptop's Name represented as a folder). All the shared folders from ubuntu will be inside this Folder (Sometimes 'IAMANKIT' folder might not show up but all the shared folders will still be accessible by following above steps of typing in address bar)
+
+
+NOTE: All the above steps were done to enable file sharing over Ethernet LAN connection. But file sharing is also working over Wifi connection in both the computers. While simply typing '\\iamankit' in the address bar of file explorer in Windows 10 PC inside 'Network' brings up the shared folders from Ubuntu computer, its not entirely clear if the shared folders are accessible over LAN or Wifi when both connections are active in Windows 10 PC. You can turn off either of the connections (LAN or Wifi) to ensure the shared folders are available only through one connection (LAN or Wifi).
+However, The shared folders from Windows 10 PC are accessed in Ubuntu computer by specifically typing a LAN or a Wifi address in Nautilus (Other location-->Connect to server)
+
+NOTE:
+Name of Windows 10 PC: TASKMASTER
+AdminUser on Windows 10 PC: AnkitPC
+AdminPass of AnkitPC on Windows 10 PC: wingardium05
+
+Name of Ubuntu laptop: iamankit
+AdminUser of Ubuntu laptop: ankit
+AdminPass of ankit on Ubuntu laptop: Ektankit
+smb pass for user 'ankit' on Ubuntu laptop: wingardium (file sharing password is different from the login/sudo password)
+
+The password prompt for shared folder access will appear only once for each login session of the PC (i.e Till the PC is restarted). The password was set in ubuntu laptop for user 'ankit'. Same can be done in Windows 10 PC by creating a new user and password and selecting 'Turn on password protected sharing' in 'change advanced sharing options' (Settings-->Network & Internet-->Ethernet) under 'All Networks'
+
+******************************************************
+
+
+
+Linux Mint 20.2 uma: (Linux mint 20 is based on ubuntu 20.04 so all packages for ubuntu 20 will work in Linux Mint 20)
+
+gedit --> xed
+nautilus --> nemo
+
+Example for installation folder change:
+sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin install_dir=/opt
+Where 'install_dir=/opt' is the parameter to change the destination folder for installation (All additional packages/softwares which hasn't been shipped with 'Linux Mint 20.2 Uma' must ideally be installed in '/opt' folder)
+
+snap blocking file default location in Linux Mint: '/etc/apt/preferences.d/nosnap.pref'
+Moved the file from its default location to '/home/ankit' folder so that snap packages can be installed in Linux Mint(Linux Mint has disabled snap by default)
+'sudo apt install snapd' This command is used for installing snapd daemon to install snap packages in Linux Mint
+'snap-store' has been downloaded seperately in Linux mint for downloading snap packages through a gui based interface (snap-store and snapd is not available be default in Linux Mint 20.2 Uma)
+
+The default hotkeys for moving windows to another monitor are Shift+Super(Start)+Arrow
+
+wmctrl -r SMPlayer -b toggle,maximized_vert,maximized_horz
+wmctrl -r SMPlayer -b remove,maximized_vert,maximized_horz
+where 'toggle' maximizes the window and 'remove' restores the window size 
+NOTE: Above commands used in SM_VS_Jugalbandi.sh file placed in the home folder in Linux Mint 20.02. Window positioning isn't working with wmctrl while the windows are in fullscreen mode; the reason why 'toggle' and 'remove' commands are used first before repositioning the window in 'SMPlayer_VSCode_Reposition.sh' and 'SMPlayer_Display_Monitor.sh' files inside home folder in linux mint 20.02
+
+Applets downloaded by me in Linux Mint:
+DDC/CI Multi-Monitor by tim-we (Adjust monitor brightness via DDC/CI)
+Weather by Gr3q (View your weather forecast)
+
+SMPLayer uses mpv internally (Loading an m3u playlist was behaving weirdly. Also Vlc Uninstalled)
+Flatpak and snap versions of VLC do not use system's GTK or QT5 themes because they are containerised apps that do not take any theme variable outside their container
+
+RegEx: ".*" selects a text by its prefix pattern like "<location>.*" would select all the text after and including "<locaion>" in one single line. To replace text by eneumeration in RegEx use "%n" 
+TO select all the text found by RegEx use ctrl+shift+L in VSCode. It will select all occurences of that expression
+
+In a script file if u want to execute a command after the previous one succeeds, use '&&' because '&&' is used to run a command after the previous succeeds (Reference: https://community.spotify.com/t5/Desktop-Linux/Commands-to-play-songs-and-playlists-from-terminal/td-p/802287)
+
+
+VSCode:
+terminal.integrated.tabs.enabled (For side view or dropdown view of integrated terminal tabs)
+
+VSCode intergrated terminal prompt shorten command:
+PS1='\[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\$ '
+Where '\[\033[01;32m\]' = code prefix for specifying color change options in which '[01;32m\]'= color code information; 01:bold text; 32m:green color, '\u' = user and '\W' = working directory ([00m\] is for keeping a plain text)  
+
+For making custom keyboard shortcuts, go to System Settings --> Keyboard --> Shortcuts --> Custom Shortcuts 
+
+
+VSCode debugger and devtools for MSEdge:
+Installed MSEdge beta on linux (stable realease as per MSEdge website) to work with devtools (exclusively inspect elements) in vscode. There's a default debugger to work with chrome and edge in vscode.
+just make a launch.json file with appropriate parameters. Mainly 2 modes: launch or attach for debugger to work with a browser (Edge or Chrome).
+'Devtools for Edge' was installed seperately for inspect elements to work in vscode (Bult-in debugger alone does not have the feature to inspect elements)
+launch Edge with keyboard custom shorcut as configured (with '--remote-debugging-port=9222' option which is already configured)
+open 'run debugger' in vscode and select an appropriate config from drop down beside the run/play button
+Note: refer to launch.json file for parameters (Different parameters for different modes i.e lauch or attach). Work with 'Debug Console' and 'Edge dev tools' inside vscode as if working with default browser dev tools
+Configured Command:
+microsoft-edge --remote-debugging-port=9222 
+
+
+Alarm clock app:
+Installation file link:
+http://archive.ubuntu.com/ubuntu/pool/universe/a/alarm-clock-applet/alarm-clock-applet_0.3.4-1build1_amd64.deb
+Note: Default install link on this site 'https://community.linuxmint.com/software/view/alarm-clock-applet' did not work. Above link was mentioned in a comment on this website 
+
+
+Spotify for linux:
+spotify --uri='spotify:track:7BKLCZ1jbUBVqRi2FVlTVw?si=dcdbf581d4a64dcc?context=spotify:playlist:6wevSCGcmXzi6pDLAFwHks'
+spotify command line flags are used to open a particular uri in spotify app for linux from terminal
+Reference: 'https://community.spotify.com/t5/Other-Podcasts-Partners-etc/URI-to-a-track-within-a-particular-playlist/td-p/1156020'
+Note: There were other references as well through which i used my own hit and trial methods to find a workaround to play tracks automatically in spotify playlist
+Most recent uri being used in Alarm Clock:
+spotify --uri='spotify:track:5O2P9iiztwhomNh8xkR9lJ?context=spotify:playlist:6wevSCGcmXzi6pDLAFwHks'
+
+
+Pipewire utility:
+pipewire installed in linux mint to enable working with HFP profiles with bluetooth devices 
+Note: 
+1. A2DP profile is needed for stereo sound quality but mic can't be used using this profile
+2. HFP profile is needed for mono sound quality and mic can be used using this profile
+(Without pipewire installed on the system, HFP profiles weren't working and hence mic couldn't be used with bluetooth devices. As pulseaudio does not support HSP/HFP by default, we can override it with the pipewire library)
+References: 
+1. https://www.eternalgeek.in/index.php/2021/06/13/wireless-earbuds-not-working-properly-on-ubuntu-system/
+2. https://kumarvinay.com/how-to-enable-bluetooth-headset-microphone-support-in-ubuntu-20-04/
+3. https://www.reddit.com/r/pop_os/comments/ol9nxx/installing_latest_pipewire_with_working_bluetooth/
+ 
+
+****************************************************************************************
+
+Monokai Pro theme in VSCode:
+Key Generator: https://monogen.vercel.app/
+How to apply the key for Monokai Pro:
+
+Enter Email(Key is email specific)
+Copy the key
+Open Command Palette in VSCode 
+Search Monokai Pro: liscence
+Enter Email id and Key one by one
+
+Reference: 
+1. https://www.reddit.com/r/Piracy/comments/j1itsi/st3_vs_code_monokai_pro_create_legitimate_license/
+2. https://gist.github.com/11philip22/44909ff8b17c1d405e83f000a39dd622 (Lookup for comment: Cr3atable)
+
+*******************************************************************************************
+
+21 December 21:
+Change in /etc/bluetooth/main.conf file:
+'#MultiProfile = off' was changed to '#MultiProfile = multiple' 
+
+
+20 May 23:
+change in 'sudo visudo' (file):
+added to the file:
+'ankit ALL=(root) NOPASSWD: /opt/lampp/manager-linux-x64.run'
+
+
+****************************************************************
+
+Spotify uri for alarm (Deeplinking):
+
+spotify --uri='spotify:track:5O2P9iiztwhomNh8xkR9lJ?context=spotify:playlist:6wevSCGcmXzi6pDLAFwHks'
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+

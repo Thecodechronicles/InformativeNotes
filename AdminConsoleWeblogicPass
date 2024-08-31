@@ -1,0 +1,10 @@
+weblogic localhost admin console (in linux mint):
+
+weblogic
+Wingardium5
+
+'Secure Storage' dialouge box (Eclipse secure storage eclipse 4.12 or eclipse 2019-06)
+Password: Wingardium5 
+
+Domain Location: /home/ankit/MyJava_Environment/MyWeblogicServer/Oracle_Middleware_Home/user_projects/domains/base_domain
+Admin Server URL: http://HP-Pavilion-15-Notebook-PC:7001

@@ -1,0 +1,64 @@
+KeyBindings:
+
+Change ubuntu workspace: Ctrl+Alt+ArrowDown/ArrowUp
+cycle through applications in ubuntu: Start/Alt+Tab
+cycle through application internally: Start/Alt+`
+
+    
+Vlc Player:
+
+toggle playlist/fullscreen: Ctrl+L
+toggle fullscreen: F
+focus inner windows: Tab
+play next: N
+play previous: P
+seek forward: Shift/Ctrl+ArrowRight or ArrowRight
+seek backward: Shift/Ctrl+ArrowLeft or ArrowLeft
+quit vlc: Ctrl+Q
+
+
+VsCode:
+
+Toggle Tabs: Alt+(Tab Number)
+open new integrated terminal: Ctrl+Shift+`
+open/close existing terminal: Ctrl+`
+open next terminal: Ctrl+PgDwn      
+open previous terminal: Ctrl+PgUp 
+close integrated terminal: Alt+Delete
+open command palette: Ctrl+Shift+P
+preferences color theme: Ctrl+K Ctrl+T
+Open External Terminal: Ctrl+Shift+C
+Add/Remove a bookmark: Alt+Ctrl+K
+Jump to previous bookmark: Alt+Ctrl+J
+start live server: Alt+L Alt+O
+stop live server: ALt+L Alt+C
+Toggle word wrap: Alt+Z
+craigb85.custom-window-zoom extension(custom setting/installed plugin): Ctrl+8/9
+
+Note: Press 'fn+ArrowUp' for 'PgUp' and 'fn+ArrowDwn' for 'PgDwn' on bluetooth keyboard 
+
+
+Mozilla Firefox/Google Chrome:
+
+Toggle Tabs: Alt+(Tab Number)
+select Address bar: Alt+D
+open new tab: Ctrl+T
+open recently closed tab: Ctrl+Shift+T
+close existing tab : Ctrl+W
+open developer tools: Ctrl+Shift+I
+select element to inspect: Ctrl+Shift+C
+view source code of the current web page: Ctrl+U
+
+Eclipse Oxygen:                                         
+
+General/OS shorcuts:
+Hotkeys for moving windows to another monitor: Shift+Super+Left/Right Arrow
+
+Self made shortcuts (using script files):
+
+SMPlayer and VSCode Reposition: Ctrl+Alt+,
+Move SMPlayer to display monitor: Ctrl+Alt+.
+Focus SMPlayer: Ctrl+Alt+/
+
+
+

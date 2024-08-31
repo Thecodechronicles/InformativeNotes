@@ -1,0 +1,79 @@
+bluetooth transmitter croma: 88:6B:0F:0F:6C:D7
+bluetooth dual booting (lookup on google)
+
+
+Append this in '/etc/bluetooth/main.conf' file:
+'[General]
+ Enable=Source,Sink,Headset,Gateway,Control,Media
+ Disable=Socket'
+(Inverted commas are to be leftout while copying the text)
+(changes appended by Ankit. Remove all the above text(if already present) from the said file to revert to the original)
+
+
+Append this in '/etc/bluetooth/audio.conf' file:
+'# This section contains options which are not specific to any
+ # particular interface
+ [General]
+ Enable=Source,Sink,Headset,Gateway,Control,Media
+ Disable=Socket'
+(Inverted commas are to be leftout while copying the text)
+(Possiblity of Bluez or Bluetooth-Manager using this file is negligent. Therefore existence of this file is, perhaps, inconsequential. Originally, the file didn't exist. This file was created by Ankit)
+
+
+Append this in '~/.config/pulse/system.pa' file:
+'.include /etc/pulse/system.pa
+ load-module module-bluetooth-policy
+ load-module module-bluetooth-discover'
+(This file is not required, Hit and Trial. Therefore, the content can be deleted from the file. This file was created by Ankit under a directory. The directory '~/.config/pulse/' was also created by Ankit by using 'sudo mkdir ~/.config/pulse/' command)
+
+
+For using sdptool(eg: sudo sdptool search --bdaddr 88:6B:0F:0F:6C:D7 a2src) command, do the following:          
+'ExecStart=/usr/lib/bluetooth/bluetoothd --compat' (changes in '/etc/systemd/system/dbus-org.bluez.service'. Originally, the text was 'ExecStart=/usr/lib/bluetooth/bluetoothd')
+sudo systemctl daemon-reload
+sudo systemctl restart bluetooth
+
+
+Bluetooth dongle address: FF:FF:FF:00:00:00
+                          00:1A:7D:DA:71:13(bluetooth csr4.0)
+                          00:20:03:04:00:02(bluetooth 2.0)
+                          00:01:07:00:47:0C(bluetooth csr4.0 changed bluetooth dongle address)
+                        
+Different notations of bluetooth dongle adresses: 0xda00 0x1371 0x7d00 0x1a00/00:1A:7D:DA:71:13(bluetooth csr4.0)
+                                                  0x0000 0x0c47 0x0700 0x0100/da 00 12 71 7d 00 1a 00/00:01:07:00:47:0C(bluetooth csr4.0 changed bluetooth dongle address)
+                        
+00:1A:7D:DA:75:21   0x00 0x1A 0x7D 0xDA 0x75 0x21 (Hit and Trial)
+
+************************************************************************
+
+Hcitools for changing bluetooth dongle chipset properties:
+ 
+hciconfig hci0 version
+(hcitool commands for generic bluetooth chipset information)
+
+sudo bccmd -d hci0 psget bdaddr
+(To get the address of bluetooth dongle chipset
+Output: 
+'Bluetooth address: 0xda00 0x1371 0x7d00 0x1a00'
+Previous address '0xda00 0x1371 0x7d00 0x1a00 (00:1A:7D:DA:71:13)' became '0x0000 0x0c47 0x0700 0x0100 (da 00 12 71 7d 00 1a 00)' upon changing to new address)
+
+sudo bccmd -d hci0 psset -s 0 bdaddr da 00 12 71 7d 00 1a 00
+sudo bccmd -d hci0 psset -s 1 bdaddr da 00 12 71 7d 00 1a 00
+sudo bccmd -d hci0 psset -s 2 bdaddr da 00 12 71 7d 00 1a 00
+(All above commands need to be given for changing address of bluetooth dongle chipset(csr4.0) in RAM as well as ROM memory of it;  
+
+Parameters: 
+s 0 - for RAM, s 1 and so on - for ROM; 
+bdaddr - Blutooth Address; 
+hci0 - blutooth dongle chipset 1, hci1- bluetooth dongle chipset 2; 
+da 00 12 71 7d 00 1a 00 - new chipset hexadecimal address, Changed Hexadecimal Chipset Adress 'da 00 12 71 7d 00 1a 00' was displayed as '00:01:07:00:47:0C')
+
+bccmd -d hci0 warmreset
+(for making changes permanent in the bluetooth dongle otherwise changed address will be lost after reboot)
+
+Refrences:
+1. https://blog.tremend.com/change-your-bluetooth-address-of-your-linux-machine/
+2. http://forums.debian.net/viewtopic.php?f=7&t=126901
+3. https://codedump.net/blog/how-to-change-the-bluetooth-device-address
+(bdaddr comand didn't work out of the box. A workaround was found in above refrences. The above noted bdaddr commands works fine(These commands were worked out after much hit and trial using above references))
+
+**************************************************************************

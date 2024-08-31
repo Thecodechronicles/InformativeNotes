@@ -1,0 +1,53 @@
+Edureka Notes:
+
+GotoWebinar Edureka ID: 
+443-555-179
+499-906-107
+
+6th March 2022:
+
+13th March 2022:
+
+19th March 2022:
+Assignment:
+Coursecontent-->Presentation: go to page 72, 74 and assignment section: Find it there
+
+20th March 2022:
+CSS:
+3 types of css: Inline, Internal, External
+
+h1{} //tag selector
+.myText{} //class selector
+h1, h2, h3{} //group tag selector
+#thisText //id selector
+* //universal selector
+
+Assignment:
+Presentation--> page 74
+
+26th March 2022:
+
+useful git commands:
+
+> git --version
+
+> git config --list
+> git --global config user.name
+> git --global config user.email
+> git --global config user.name "your name"
+> git --global config user.email "your email"
+
+> git init
+> git add .
+> git commit -m "initial commit"
+> git remote add origin "github url"
+> git push origin master
+
+FileLinkSharedByVarun(Faculty):
+https://1drv.ms/u/s!ApB28GeA42u8x5VuUVw2IamsZn-pow?e=UhbkhJ
+
+3rd Aril:
+The entire width of a page is divided into 12 columns by bootstrap
+
+
+

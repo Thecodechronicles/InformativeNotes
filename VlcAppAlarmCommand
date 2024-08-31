@@ -1,0 +1,5 @@
+vlc /home/ankit/Downloads/MorningPlaylist/Good_Morning.xspf --sout '#transcode{vcodec=none,acodec=mp3,ab=128,channels=2,samplerate=44100,scodec=none}:http{mux=mp3,dst=:8080/}' --sout-all --sout-keep
+(command for playing playlist and streaming over network)
+
+vlc /home/ankit/Downloads/MorningPlaylist/Good_Morning.xspf
+(command for playing a playlist)

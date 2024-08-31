@@ -1,0 +1,6 @@
+echo "nameserver 8.8.8.8" | sudo tee -a /etc/resolvconf/resolv.conf.d/head > /dev/null 
+sudo systemctl enable resolvconf
+sudo systemctl start resolvconf
+sudo /etc/init.d/networking restart
+(used these commands in ubuntu 18.04. Issue got resolved probably, after updates in ubuntu 18.04)
+
